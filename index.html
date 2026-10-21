@@ -1,0 +1,1002 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="NAVE · Food & Drinks · Rua de Santos Pousada 140, Porto. Pequeno-almoço, almoço, snacks e uma agenda de música, chefs convidados e exposições.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+<title>NAVE Porto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap">
+<style>
+/* Layout: one 1240px column; pixel-grid type (from the logo) for titles only, mono italic for programme data like the posters, grotesk for prose. */
+:root{
+  --bg:#ffffff;
+  --surface:#f3f3ef;
+  --fg:#0b0b0a;
+  --muted:#5b5a53;
+  --line:#dcdbd4;
+  --mark:#7ee36c;
+  --mark-ink:#0b0b0a;
+  --scrim:rgb(8 8 7 / .72);
+  --on-photo:#f4f3ee;
+  --img-outline:rgb(0 0 0 / .1);
+  --shadow:0 1px 2px rgb(0 0 0 / .06), 0 12px 32px rgb(0 0 0 / .12);
+
+  --f-display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --t-cap:.75rem; --t-ui:.875rem; --t-body:1rem; --t-lg:1.25rem; --t-xl:1.75rem; --t-2xl:clamp(1.75rem,1.1rem + 2.6vw,3rem);
+  --r:2px;
+  --gut:max(16px, env(safe-area-inset-left, 0px));
+  --gut-r:max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b0b0a; --surface:#161614; --fg:#f2f1ec; --muted:#a8a79f; --line:#2d2d29;
+    --mark:#86eb72; --mark-ink:#0b0b0a; --scrim:rgb(0 0 0 / .72); --on-photo:#f4f3ee;
+    --img-outline:rgb(255 255 255 / .1); --shadow:0 1px 2px rgb(0 0 0 / .4), 0 16px 40px rgb(0 0 0 / .5);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b0b0a; --surface:#161614; --fg:#f2f1ec; --muted:#a8a79f; --line:#2d2d29;
+  --mark:#86eb72; --mark-ink:#0b0b0a; --scrim:rgb(0 0 0 / .72); --on-photo:#f4f3ee;
+  --img-outline:rgb(255 255 255 / .1); --shadow:0 1px 2px rgb(0 0 0 / .4), 0 16px 40px rgb(0 0 0 / .5);
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-padding-top:5rem}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-display);font-size:var(--t-body);line-height:1.55;font-stretch:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+::selection{background:var(--mark);color:var(--mark-ink)}
+:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+main:focus{outline:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.wrap{max-width:1240px;margin-inline:auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+.mono{font-family:var(--f-mono)}
+.eyebrow{font-family:var(--f-mono);font-size:var(--t-cap);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);display:flex;flex-wrap:wrap;gap:.25rem .5rem}
+.eyebrow i{font-style:italic}
+
+/* Pixel type */
+.pix{display:block;height:auto;color:var(--fg);shape-rendering:crispEdges;overflow:visible}
+.pix rect{fill:currentColor}
+.ico{width:14px;height:14px;flex:none}
+@media (prefers-reduced-motion: no-preference){
+  .pix.go rect{animation:pxin 1ms steps(1) var(--d,0ms) both}
+}
+@keyframes pxin{from{opacity:0}to{opacity:1}}
+.logo-full rect[data-hide]{opacity:0}
+
+/* Skip link */
+.skip{position:absolute;left:var(--gut);top:-100px;z-index:50;background:var(--fg);color:var(--bg);padding:.6rem .9rem;font-family:var(--f-mono);font-size:var(--t-ui)}
+.skip:focus{top:calc(env(safe-area-inset-top,0px) + 8px)}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:1rem;min-height:4rem}
+.brand{display:flex;align-items:center;text-decoration:none;padding-block:.6rem;margin-inline-end:auto}
+.brand svg{width:74px}
+.status{font-family:var(--f-mono);font-size:var(--t-cap);text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:.5rem;color:var(--muted)}
+.status .dot{width:8px;height:8px;background:var(--muted);flex:none}
+.status.open .dot{background:var(--mark);box-shadow:0 0 0 2px var(--fg) inset}
+.nav{display:flex;gap:.25rem}
+.nav a{font-family:var(--f-mono);font-size:var(--t-ui);text-decoration:none;text-transform:uppercase;letter-spacing:.04em;padding:.55rem .7rem;min-height:40px;display:flex;align-items:center;position:relative}
+.nav a[aria-current="page"]{background:var(--fg);color:var(--bg)}
+@media (hover:hover){.nav a:not([aria-current="page"]):hover{background:var(--surface)}}
+@media (max-width:760px){.top .status{display:none}.nav a{padding:.55rem .55rem;font-size:.8125rem}.brand svg{width:62px}}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:44px;padding:.7rem 1.1rem;font-family:var(--f-mono);font-size:var(--t-ui);font-weight:500;text-transform:uppercase;letter-spacing:.04em;text-decoration:none;border:1.5px solid var(--fg);background:transparent;cursor:pointer;border-radius:var(--r);transition-property:background-color,color,scale;transition-duration:150ms}
+.btn.solid{background:var(--fg);color:var(--bg)}
+@media (hover:hover){.btn:hover{background:var(--fg);color:var(--bg)}.btn.solid:hover{background:var(--mark);color:var(--mark-ink);border-color:var(--mark)}}
+.btn:active{scale:.96}
+.btn svg{width:14px;height:14px;flex:none}
+.btn.ghost{border-color:var(--line)}
+
+/* Marker underline (from the text posts) */
+.mk{position:relative;white-space:nowrap;isolation:isolate}
+.mk::after{content:"";position:absolute;left:-.08em;right:-.12em;bottom:-.16em;height:.34em;z-index:-1;background:var(--mark);
+  -webkit-mask:var(--m) center/100% 100% no-repeat;mask:var(--m) center/100% 100% no-repeat}
+.mk.sw{--m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M3 12 C40 6 90 9 130 8 S185 7 197 10' fill='none' stroke='%23000' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E")}
+.mk.da{--m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M3 11 H197' fill='none' stroke='%23000' stroke-width='6' stroke-dasharray='16 12' stroke-linecap='round'/%3E%3C/svg%3E")}
+.mk.wv{--m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M3 10 l10 -5 l10 7 l10 -7 l10 7 l10 -7 l10 7 l10 -7 l10 7 l10 -7 l10 7 l10 -7 l10 7 l10 -7 l10 7 l10 -7 l10 7 l10 -7 l10 7' fill='none' stroke='%23000' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E")}
+@media (prefers-reduced-motion: no-preference){
+  .reveal .mk::after{animation:draw 700ms cubic-bezier(.2,0,0,1) both;animation-delay:calc(var(--i,0) * 120ms + 300ms)}
+}
+@keyframes draw{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+
+/* Handwritten mark */
+.nne{display:inline-block;background:currentColor;-webkit-mask:url(img/nne.png) center/contain no-repeat;mask:url(img/nne.png) center/contain no-repeat;aspect-ratio:333/316}
+
+/* Photo frame */
+.ph{position:relative;overflow:hidden;background:var(--surface)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph::after{content:"";position:absolute;inset:0;outline:1px solid var(--img-outline);outline-offset:-1px;pointer-events:none}
+
+/* Pages */
+.page[hidden]{display:none!important}
+section{padding-block:clamp(3rem,6vw,6rem)}
+.sec-head{display:grid;gap:1rem;margin-bottom:clamp(1.5rem,3vw,2.5rem)}
+.sec-head .pix{width:auto;height:clamp(28px,4vw,44px)}
+.sec-head p{max-width:58ch;color:var(--muted);text-wrap:pretty;margin:0}
+.sec-row{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1rem}
+
+/* HERO */
+.hero{padding-block:clamp(1.5rem,4vw,3.5rem) clamp(3rem,6vw,5rem)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(1.5rem,4vw,4rem);align-items:stretch}
+.hero-l{display:flex;flex-direction:column;gap:clamp(1.25rem,2.5vw,2rem);min-width:0}
+.hero-logo{position:relative}
+.hero-logo .pix{width:100%}
+.hero-logo .nne{position:absolute;right:0;top:calc(100% + clamp(.5rem,1vw,.75rem));width:clamp(72px,9vw,104px);rotate:-6deg;color:var(--fg)}
+.hero-lede{font-size:clamp(1.15rem,1rem + .7vw,1.6rem);line-height:1.3;font-weight:600;letter-spacing:-.01em;max-width:min(30ch, calc(100% - clamp(88px,10vw,124px)));margin:calc(clamp(1.25rem,2.5vw,2rem) * -.4) 0 0;text-wrap:balance}
+.hero-meta{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;font-family:var(--f-mono);font-size:var(--t-ui)}
+.hero-meta span{display:flex;gap:.5rem}
+.hero-meta b{font-weight:500}
+.ctas{display:flex;flex-wrap:wrap;gap:.75rem}
+.hero-r{position:relative;min-height:440px;min-width:0}
+.hero-r .ph{position:absolute;inset:0}
+.next{position:absolute;left:12px;right:12px;bottom:12px;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;padding:12px;background:var(--scrim);color:var(--on-photo);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);text-decoration:none;border-radius:var(--r)}
+.next img{width:72px;aspect-ratio:4/5;object-fit:cover;border-radius:1px}
+.next .k{font-family:var(--f-mono);font-size:var(--t-cap);text-transform:uppercase;letter-spacing:.06em;opacity:.85}
+.next .t{font-family:var(--f-mono);font-style:italic;font-weight:500;font-size:var(--t-body);line-height:1.25;text-transform:uppercase;margin:.2rem 0}
+.next .d{font-family:var(--f-mono);font-size:var(--t-ui);font-variant-numeric:tabular-nums}
+@media (hover:hover){.next:hover .t{text-decoration:underline;text-underline-offset:3px}}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-r{min-height:0;aspect-ratio:4/5;max-height:620px}}
+
+/* Manifesto */
+.manifesto{border-block:1px solid var(--line)}
+.manifesto p{font-size:clamp(1.6rem,1rem + 3vw,3.4rem);line-height:1.18;font-weight:700;letter-spacing:-.02em;margin:0;max-width:22ch;text-wrap:balance}
+.manifesto p .smile{color:var(--fg);background:var(--mark);color:var(--mark-ink);padding:0 .15em;font-family:var(--f-mono);font-weight:500}
+.manifesto .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:end}
+.manifesto .en{font-family:var(--f-mono);font-style:italic;font-size:var(--t-ui);color:var(--muted);max-width:34ch;margin:0}
+@media (max-width:860px){.manifesto .wrap{grid-template-columns:1fr}}
+
+/* Event cards (home strip) */
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(.75rem,1.5vw,1.25rem)}
+.card{display:flex;flex-direction:column;gap:.75rem;text-align:start;background:none;border:0;padding:0;cursor:pointer}
+.card .ph{display:block;aspect-ratio:4/5;width:100%}
+.card .ph img{transition-property:scale;transition-duration:400ms;transition-timing-function:cubic-bezier(.2,0,0,1)}
+@media (hover:hover){.card:hover .ph img{scale:1.03}.card:hover .ct{text-decoration:underline;text-underline-offset:3px}}
+.cd{font-family:var(--f-mono);font-size:var(--t-cap);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-variant-numeric:tabular-nums;display:flex;gap:.5rem;align-items:center}
+.ct{font-family:var(--f-mono);font-style:italic;font-weight:500;text-transform:uppercase;line-height:1.3;font-size:var(--t-ui)}
+@media (max-width:860px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Menu */
+.menu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,2vw,2rem)}
+.menu article{display:flex;flex-direction:column;gap:1rem;min-width:0}
+.menu .ph{aspect-ratio:4/5}
+.menu h3{font-family:var(--f-mono);font-style:italic;font-weight:500;text-transform:uppercase;font-size:var(--t-lg);margin:0;line-height:1.2;display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
+.menu h3 small{font-style:normal;font-weight:400;font-size:var(--t-cap);color:var(--muted);letter-spacing:.05em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.menu ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.menu li{padding:.55rem 0;border-bottom:1px solid var(--line);font-size:var(--t-ui)}
+@media (max-width:860px){.menu{grid-template-columns:1fr}.menu .ph{aspect-ratio:16/10}}
+
+/* Space mosaic */
+.mosaic{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,minmax(180px,22vw));gap:clamp(.5rem,1vw,.75rem)}
+.mosaic figure{margin:0;position:relative}
+.mosaic figure .ph{position:absolute;inset:0}
+.mosaic figcaption{position:absolute;left:8px;bottom:8px;z-index:1;font-family:var(--f-mono);font-size:var(--t-cap);text-transform:uppercase;letter-spacing:.05em;background:var(--scrim);color:var(--on-photo);padding:.25rem .5rem}
+.mosaic .a{grid-column:1/3;grid-row:1/3}
+.mosaic .b{grid-column:3/4;grid-row:1/2}
+.mosaic .c{grid-column:4/5;grid-row:1/3}
+.mosaic .d{grid-column:3/4;grid-row:2/3}
+@media (max-width:760px){.mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(160px,48vw))}.mosaic .a{grid-column:1/3;grid-row:1/2}.mosaic .b{grid-column:1/2;grid-row:2/3}.mosaic .c{grid-column:2/3;grid-row:2/4}.mosaic .d{grid-column:1/2;grid-row:3/4}}
+.feats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;margin-top:clamp(1.5rem,3vw,2.5rem)}
+.feats div{border-top:1.5px solid var(--fg);padding-top:.85rem;display:grid;gap:.35rem}
+.feats b{font-family:var(--f-mono);font-style:italic;font-weight:500;text-transform:uppercase;font-size:var(--t-ui)}
+.feats span{font-size:var(--t-ui);color:var(--muted);text-wrap:pretty}
+@media (max-width:760px){.feats{grid-template-columns:1fr}}
+
+/* Visit */
+.visit{background:var(--fg);color:var(--bg)}
+.visit .pix{color:var(--bg)}
+.visit .eyebrow,.visit .sec-head p{color:var(--bg);opacity:.75}
+.visit-grid{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);align-items:start}
+.pin{width:clamp(88px,10vw,132px)}
+.coords{font-family:var(--f-mono);font-size:clamp(1.25rem,1rem + 1.4vw,2.1rem);font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-.01em;margin:0 0 .75rem}
+.addr{font-size:clamp(1.1rem,1rem + .5vw,1.4rem);font-weight:700;line-height:1.35;margin:0 0 1.25rem}
+.addr .mk::after{bottom:-.1em}
+.visit .btn{border-color:var(--bg);color:var(--bg)}
+.visit .btn.solid{background:var(--bg);color:var(--fg)}
+@media (hover:hover){.visit .btn:hover{background:var(--bg);color:var(--fg)}.visit .btn.solid:hover{background:var(--mark);color:var(--mark-ink);border-color:var(--mark)}}
+.visit .btn:focus-visible,.visit a:focus-visible{outline-color:var(--bg)}
+.hours{width:100%;border-collapse:collapse;font-family:var(--f-mono);font-size:var(--t-ui);font-variant-numeric:tabular-nums}
+.hours th,.hours td{text-align:start;padding:.7rem 0;border-bottom:1px solid color-mix(in oklab, var(--bg) 25%, transparent);font-weight:400}
+.hours td{text-align:end}
+.hours tr.today th,.hours tr.today td{font-weight:700}
+.hours tr.today th::after{content:" · hoje";font-weight:400;opacity:.75}
+.visit .status{color:var(--bg);margin-bottom:1rem;font-size:var(--t-ui)}
+.visit .status .dot{background:color-mix(in oklab,var(--bg) 50%,transparent)}
+.visit .status.open .dot{background:var(--mark);box-shadow:none}
+.transit{margin-top:1.25rem;font-size:var(--t-ui);opacity:.85;max-width:40ch}
+@media (max-width:960px){.visit-grid{grid-template-columns:auto minmax(0,1fr)}.visit-grid .col-h{grid-column:1/-1}}
+@media (max-width:560px){.visit-grid{grid-template-columns:1fr}}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding-block:2.5rem calc(2.5rem + env(safe-area-inset-bottom,0px))}
+footer .wrap{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem 3rem;align-items:start}
+footer .pix{width:120px}
+footer p{margin:0;font-family:var(--f-mono);font-size:var(--t-cap);color:var(--muted);letter-spacing:.03em;max-width:60ch;text-transform:uppercase;line-height:1.6}
+footer p i{display:block}
+footer .links{display:flex;gap:1rem;font-family:var(--f-mono);font-size:var(--t-ui)}
+footer .links a{min-height:40px;display:inline-flex;align-items:center;text-underline-offset:3px}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
+
+/* ============ AGENDA ============ */
+.ag-hero{padding-block:clamp(2rem,4vw,3.5rem) 1.5rem}
+.ag-hero .wrap{display:grid;gap:1.25rem}
+.ag-hero .pix{width:min(100%,560px)}
+.ag-hero p{max-width:60ch;margin:0;font-size:var(--t-lg);line-height:1.45;font-weight:500;text-wrap:pretty}
+.ag-hero p .mono{font-weight:500}
+.toolbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 4rem);z-index:15;background:var(--bg);border-block:1px solid var(--line)}
+.toolbar .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;padding-block:.75rem}
+.month{display:flex;align-items:center;gap:.5rem;margin-inline-end:auto}
+.month h2{margin:0;display:flex;align-items:center;min-width:0}
+.month h2 .pix{height:clamp(18px,2.6vw,26px);width:auto}
+.ibtn{width:44px;height:44px;display:inline-grid;place-items:center;border:1.5px solid var(--line);background:transparent;cursor:pointer;border-radius:var(--r);flex:none;transition-property:background-color,border-color,scale;transition-duration:150ms}
+.ibtn svg{width:16px;height:16px}
+.ibtn:disabled{opacity:.35;cursor:not-allowed}
+@media (hover:hover){.ibtn:not(:disabled):hover{border-color:var(--fg)}}
+.ibtn:not(:disabled):active{scale:.96}
+.seg{display:inline-flex;border:1.5px solid var(--fg);border-radius:var(--r)}
+.seg button{border:0;background:transparent;padding:.5rem .85rem;min-height:40px;font-family:var(--f-mono);font-size:var(--t-cap);text-transform:uppercase;letter-spacing:.05em;cursor:pointer;display:flex;align-items:center;gap:.45rem}
+.seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.seg svg{width:13px;height:13px}
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;width:100%}
+.chip{display:inline-flex;align-items:center;gap:.5rem;min-height:36px;padding:.35rem .75rem;border:1.5px solid var(--line);background:transparent;border-radius:999px;font-family:var(--f-mono);font-size:var(--t-cap);text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition-property:background-color,border-color,color;transition-duration:150ms}
+.chip .ico{width:14px;height:14px}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+@media (hover:hover){.chip[aria-pressed="false"]:hover{border-color:var(--fg)}}
+.chip .n{font-variant-numeric:tabular-nums;opacity:.7}
+.summary{font-family:var(--f-mono);font-size:var(--t-cap);color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin:0}
+@media (max-width:640px){.toolbar{position:static}.filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:.25rem;scrollbar-width:none;margin-inline:calc(var(--gut) * -1) calc(var(--gut-r) * -1);padding-inline:var(--gut) var(--gut-r)}.filters::-webkit-scrollbar{display:none}.chip{flex:none}}
+
+.ag-body{padding-block:1.5rem 4rem}
+/* Calendar */
+.cal-head,.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.cal-head{border-bottom:1.5px solid var(--fg)}
+.cal-head span{font-family:var(--f-mono);font-size:var(--t-cap);text-transform:uppercase;letter-spacing:.06em;padding:.5rem .5rem;color:var(--muted)}
+.cal{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
+.day{border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:8.5rem;padding:.4rem;display:flex;flex-direction:column;gap:.35rem;min-width:0;position:relative}
+.day.out{background:var(--surface)}
+.day.out .dnum{opacity:.45}
+.day.past:not(.out) .ev{opacity:.62}
+.dnum{font-family:var(--f-mono);font-size:var(--t-ui);font-variant-numeric:tabular-nums;display:flex;align-items:center;justify-content:space-between;gap:.25rem;padding:.15rem .25rem}
+.day.today .dnum b{background:var(--mark);color:var(--mark-ink);padding:0 .35rem;font-weight:700}
+.dnum .tg{font-size:.6875rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg)}
+.daybtn{display:none}
+.evs{display:flex;flex-direction:column;gap:.3rem;list-style:none;margin:0;padding:0;min-width:0}
+.ev{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.1rem .4rem;align-items:start;width:100%;text-align:start;border:0;border-left:3px solid var(--fg);background:var(--surface);padding:.35rem .45rem;cursor:pointer;font-family:var(--f-mono);font-size:.75rem;line-height:1.3;border-radius:0 var(--r) var(--r) 0;transition-property:background-color,color;transition-duration:120ms}
+.day.out .ev{background:var(--bg)}
+.ev .ico{width:11px;height:11px;margin-top:2px}
+.ev .tm{font-variant-numeric:tabular-nums;color:var(--muted);grid-column:2}
+.ev .nm{grid-column:1/-1;font-style:italic;font-weight:500;text-transform:uppercase;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow-wrap:anywhere}
+@media (hover:hover){.ev:hover{background:var(--fg);color:var(--bg)}.ev:hover .tm{color:inherit;opacity:.75}}
+
+/* Mobile day panel */
+.daypanel{display:none}
+@media (max-width:760px){
+  .day{min-height:0;padding:0;aspect-ratio:1/1.05}
+  .day .dnum,.day .evs{display:none}
+  .daybtn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;width:100%;height:100%;border:0;background:transparent;cursor:pointer;font-family:var(--f-mono);font-size:var(--t-ui);font-variant-numeric:tabular-nums;padding:0}
+  .daybtn:disabled{cursor:default}
+  .day.out .daybtn{opacity:.4}
+  .day.today .daybtn .n{background:var(--mark);color:var(--mark-ink);padding:0 .3rem;font-weight:700}
+  .day.sel .daybtn{background:var(--fg);color:var(--bg)}
+  .day.sel.today .daybtn .n{background:var(--bg);color:var(--fg)}
+  .dots{display:flex;gap:3px;height:6px}
+  .dots i{width:6px;height:6px;background:currentColor}
+  .daypanel{display:block;margin-top:1.5rem}
+  .cal-head span{padding:.5rem 0;text-align:center}
+}
+
+/* List (poster table) */
+.list{border-top:1.5px solid var(--fg)}
+.lhead{display:grid;grid-template-columns:5.5rem minmax(0,1fr) 4.5rem;gap:1rem;padding:.75rem 0;font-family:var(--f-mono);font-size:var(--t-cap);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--line)}
+.lhead span:last-child{text-align:end}
+.lday{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:1rem;border-bottom:1px solid var(--line)}
+.lday.today .ldate b{background:var(--mark);color:var(--mark-ink);padding:0 .3rem}
+.ldate{font-family:var(--f-mono);padding:1rem 0;display:flex;flex-direction:column;line-height:1.2}
+.ldate b{font-size:var(--t-xl);font-weight:500;font-variant-numeric:tabular-nums;align-self:start}
+.ldate span{font-size:var(--t-cap);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:.3rem}
+.lrows{list-style:none;margin:0;padding:0}
+.lrows li + li{border-top:1px solid var(--line)}
+.lrow{display:grid;grid-template-columns:auto minmax(0,1fr) 4.5rem;gap:.85rem;align-items:center;width:100%;text-align:start;background:transparent;border:0;padding:1rem 0;cursor:pointer;font-family:var(--f-mono)}
+.lrow .ico{width:16px;height:16px}
+.lrow .nm{font-style:italic;font-weight:500;text-transform:uppercase;font-size:clamp(.875rem,.8rem + .4vw,1.125rem);line-height:1.3;overflow-wrap:anywhere}
+.lrow .nm small{display:block;font-style:normal;font-weight:400;font-size:var(--t-cap);letter-spacing:.04em;color:var(--muted);margin-top:.2rem}
+.lrow .tm{text-align:end;font-style:italic;font-variant-numeric:tabular-nums;font-size:clamp(.875rem,.8rem + .4vw,1.125rem)}
+.lday.past .lrow{opacity:.62}
+@media (hover:hover){.lrow:hover .nm{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px}}
+@media (max-width:560px){.lhead{display:none}.lday{grid-template-columns:3.25rem minmax(0,1fr);gap:.75rem}.ldate b{font-size:var(--t-lg)}.lrow{grid-template-columns:auto minmax(0,1fr) auto;gap:.6rem}}
+.empty{padding:3rem 0;font-family:var(--f-mono);font-size:var(--t-ui);color:var(--muted);text-align:center;border-bottom:1px solid var(--line)}
+
+/* Series legend */
+.series{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1.5px solid var(--fg)}
+.series article{padding:1.25rem 1.25rem 1.5rem 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:.6rem;min-width:0}
+.series article:not(:nth-child(4n+1)){padding-left:1.25rem;border-left:1px solid var(--line)}
+.series h3{margin:0;font-family:var(--f-mono);font-style:italic;font-weight:700;text-transform:uppercase;font-size:var(--t-body);line-height:1.25;display:flex;gap:.5rem;align-items:center}
+.series h3 .ico{width:14px;height:14px;flex:none}
+.series .k{font-family:var(--f-mono);font-size:var(--t-cap);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.series p{margin:0;font-size:var(--t-ui);text-wrap:pretty}
+.series .badge{margin-top:auto;padding-top:.5rem}
+.series .nne{width:72px;color:var(--fg)}
+.mixin{font-family:var(--f-mono);font-weight:700;font-size:.8125rem;line-height:1.05;letter-spacing:.12em}
+.mixin span{display:block}
+.mixin span:first-child{color:transparent;-webkit-text-stroke:1px var(--fg)}
+.mixin span:nth-child(2){font-weight:400}
+.mixin .dots6{display:flex;gap:4px;margin-top:4px}
+.mixin .dots6 i{width:9px;height:9px;border-radius:50%;background:var(--fg)}
+@media (max-width:960px){.series{grid-template-columns:repeat(2,minmax(0,1fr))}.series article:not(:nth-child(4n+1)){padding-left:0;border-left:0}.series article:nth-child(2n){padding-left:1.25rem;border-left:1px solid var(--line)}}
+@media (max-width:560px){.series{grid-template-columns:1fr}.series article:nth-child(2n){padding-left:0;border-left:0}}
+
+.note{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1rem;align-items:start;margin-top:2rem;padding:1rem 1.25rem;border:1.5px solid var(--fg);border-radius:var(--r);font-size:var(--t-ui)}
+.note .pix{height:28px;width:auto}
+.note b{font-family:var(--f-mono);text-transform:uppercase;font-style:italic;font-weight:500;letter-spacing:.02em}
+.note p{margin:.25rem 0 0;color:var(--muted)}
+
+/* Dialog */
+dialog.sheet{border:0;padding:0;margin:0;max-width:none;max-height:none;width:min(960px,100vw);height:100dvh;inset:0 0 0 auto;background:var(--bg);color:var(--fg);box-shadow:var(--shadow);overscroll-behavior:contain}
+dialog.sheet::backdrop{background:rgb(0 0 0 / .5)}
+@media (prefers-reduced-motion: no-preference){
+  dialog.sheet[open]{animation:sheetin 320ms cubic-bezier(.2,0,0,1)}
+  dialog.sheet[open]::backdrop{animation:fadein 240ms ease-out}
+}
+@keyframes sheetin{from{translate:24px 0;opacity:0}}
+@keyframes fadein{from{opacity:0}}
+.sh{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);height:100%}
+.sh-img{background:var(--surface);position:relative;min-height:0;overflow:hidden}
+.sh-img img{width:100%;height:100%;object-fit:cover}
+.sh-img img.contain{object-fit:contain}
+.sh-body{display:flex;flex-direction:column;min-height:0;overflow:auto;padding:max(16px,env(safe-area-inset-top,0px)) max(24px,env(safe-area-inset-right,0px)) max(24px,env(safe-area-inset-bottom,0px)) clamp(20px,3vw,40px)}
+.sh-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+.sh-bar .nav2{display:flex;gap:.5rem}
+.sh-cat{display:flex;align-items:center;gap:.5rem;font-family:var(--f-mono);font-size:var(--t-cap);text-transform:uppercase;letter-spacing:.06em;margin-top:1.75rem}
+.sh-cat .ico{width:14px;height:14px}
+.sh h2{font-family:var(--f-mono);font-style:italic;font-weight:700;text-transform:uppercase;font-size:var(--t-2xl);line-height:1.08;letter-spacing:-.01em;margin:.75rem 0 0;text-wrap:balance;overflow-wrap:anywhere}
+.sh h2 .s{display:block;font-weight:400;font-size:.55em;letter-spacing:0;margin-bottom:.35rem}
+.sh .sub{font-family:var(--f-mono);font-style:italic;font-size:var(--t-ui);color:var(--muted);margin:.6rem 0 0}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin:1.75rem 0 0;border-top:1.5px solid var(--fg)}
+.facts div{padding:.75rem 0;border-bottom:1px solid var(--line);min-width:0}
+.facts div:nth-child(2n){padding-left:1rem;border-left:1px solid var(--line)}
+.facts dt{font-family:var(--f-mono);font-size:var(--t-cap);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.facts dd{margin:.2rem 0 0;font-weight:600;font-variant-numeric:tabular-nums}
+.sh .desc{margin:1.5rem 0 0;max-width:56ch;text-wrap:pretty}
+.sh .acts{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+.sh .fine{margin-top:auto;padding-top:2rem;font-family:var(--f-mono);font-size:var(--t-cap);color:var(--muted);text-transform:uppercase;letter-spacing:.04em;line-height:1.6}
+@media (max-width:760px){
+  dialog.sheet{width:100vw;inset:auto 0 0 0;height:auto;max-height:92dvh}
+  @media (prefers-reduced-motion: no-preference){dialog.sheet[open]{animation:sheetup 320ms cubic-bezier(.2,0,0,1)}}
+  .sh{grid-template-columns:1fr;grid-template-rows:auto;height:auto;max-height:92dvh;overflow:auto}
+  .sh-img{height:min(46vh,380px)}
+  .sh-body{overflow:visible;padding:16px var(--gut-r) max(24px,env(safe-area-inset-bottom,0px)) var(--gut)}
+  .sh-cat{margin-top:1.25rem}
+}
+@keyframes sheetup{from{translate:0 24px;opacity:0}}
+.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));translate:-50% 0;background:var(--fg);color:var(--bg);font-family:var(--f-mono);font-size:var(--t-ui);padding:.65rem 1rem;z-index:60;border-radius:var(--r)}
+
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{transition-duration:0ms!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar para o conteúdo</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" data-route="inicio" aria-label="NAVE, página inicial"><span id="brandMark"></span></a>
+    <p class="status" id="statusTop" aria-live="off"><i class="dot" aria-hidden="true"></i><span></span></p>
+    <nav class="nav" aria-label="Principal">
+      <a href="#inicio" data-route="inicio">Início</a>
+      <a href="#agenda" data-route="agenda">Agenda</a>
+      <a href="#visitar" data-route="visitar">Visitar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- ===================== HOME ===================== -->
+<div class="page" id="page-inicio">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-l">
+        <p class="eyebrow"><span>Food &amp; Drinks</span><span aria-hidden="true">/</span><span>Porto</span><span aria-hidden="true">/</span><i>Rua de Santos Pousada 140</i></p>
+        <div class="hero-logo">
+          <h1 class="sr">NAVE</h1>
+          <div id="heroLogo"></div>
+          <span class="nne" role="img" aria-label="Never Not Eating"></span>
+        </div>
+        <p class="hero-lede">Pequeno-almoço, almoço e snacks durante o dia. Música, chefs convidados e exposições ao fim da tarde.</p>
+        <div class="hero-meta">
+          <span><b>Seg–Sex</b> 09h–19h</span>
+          <span><b>Sáb</b> 10h–19h</span>
+          <span id="statusHero" class="status" style="text-transform:none;letter-spacing:0;font-size:inherit"><i class="dot" aria-hidden="true"></i><span></span></span>
+        </div>
+        <div class="ctas">
+          <a class="btn solid" href="#agenda" data-route="agenda">Ver agenda <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 3.5 12.5 8 8 12.5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></a>
+          <a class="btn" href="#visitar" data-route="visitar">Como chegar</a>
+        </div>
+      </div>
+      <div class="hero-r">
+        <div class="ph"><img src="img/storefront.jpg" alt="Fachada da NAVE à noite, com o letreiro iluminado visto através do trânsito em movimento"></div>
+        <a class="next" id="nextUp" href="#agenda"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto reveal" aria-labelledby="mf-h">
+    <h2 id="mf-h" class="sr">Sobre a NAVE</h2>
+    <div class="wrap">
+      <p><span class="mk sw" style="--i:0">A NAVE</span> é um espaço <span class="mk sw" style="--i:1">polivalente</span> e multifacetado! Difundimos a <span class="mk sw" style="--i:2">criação artística</span>, valorizamos o <span class="mk sw" style="--i:3">bem-estar</span> e adoramos <span class="mk sw" style="--i:4">encontros</span> com <span class="mk sw" style="--i:5">boa música</span> e pessoas incríveis. <span class="smile" aria-hidden="true">:)</span></p>
+      <p class="en" lang="en">NAVE is a multipurpose space. We embrace artistic creation, we appreciate wellbeing care and we love gatherings with good music and amazing people.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="wk-h">
+    <div class="wrap">
+      <div class="sec-row sec-head">
+        <div style="display:grid;gap:.75rem">
+          <p class="eyebrow"><span>Próximos eventos</span><i>/ Up next</i></p>
+          <h2 id="wk-h"><span class="sr">Próximos na agenda</span><span data-pix="AGENDA" aria-hidden="true"></span></h2>
+        </div>
+        <a class="btn" href="#agenda" data-route="agenda">Calendário completo</a>
+      </div>
+      <div class="cards" id="homeCards"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="mn-h" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><span>Breakfast + lunch + snacks</span></p>
+        <h2 id="mn-h"><span class="sr">Menu</span><span data-pix="MENU" aria-hidden="true"></span></h2>
+        <p>Café de especialidade e cozinha do dia, servidos de manhã ao fim da tarde. O menu muda com a estação; as novidades saem primeiro no Instagram.</p>
+      </div>
+      <div class="menu">
+        <article>
+          <div class="ph"><img src="img/lattes.jpg" alt="Dois lattes com latte art numa mesa de madeira, ao lado de uma bolacha" loading="lazy"></div>
+          <h3>Pequeno-almoço <small>Manhã</small></h3>
+          <ul><li>Espresso, filtrados V60 e lattes</li><li>Tostas de pão de fermentação lenta</li><li>Ovos, granola e pastelaria</li></ul>
+        </article>
+        <article>
+          <div class="ph"><img src="img/table.jpg" alt="Mesa com vários pratos do almoço: arroz, carne grelhada, salada e puré" loading="lazy"></div>
+          <h3>Almoço <small>Meio do dia</small></h3>
+          <ul><li>Prato do dia e opções vegetarianas</li><li>Legumes da época, grelhados</li><li>Pratos para partilhar à mesa</li></ul>
+        </article>
+        <article>
+          <div class="ph"><img src="img/drinks.jpg" alt="Duas pessoas a brindar com copos de gin tónico" loading="lazy"></div>
+          <h3>Snacks &amp; bebidas <small>Tarde</small></h3>
+          <ul><li>Ostras e petiscos ao fim da tarde</li><li>Vinho, cerveja e cocktails</li><li>Chás, sumos e kombucha</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="sp-h" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><span>O espaço</span><i>/ The space</i></p>
+        <h2 id="sp-h"><span class="sr">Espaço</span><span data-pix="ESPAÇO" aria-hidden="true"></span></h2>
+        <p>Uma sala comprida com luz natural, plantas e sofás. De manhã trabalha-se ao portátil; à tarde as paredes recebem exposições e a música sobe de volume.</p>
+      </div>
+      <div class="mosaic">
+        <figure class="a"><div class="ph"><img src="img/interior.jpg" alt="Interior da NAVE: sala comprida com tapete azul redondo, sofás, plantas e balcão ao fundo" loading="lazy"></div><figcaption>A sala</figcaption></figure>
+        <figure class="b"><div class="ph"><img src="img/laptop.jpg" alt="Pessoas a trabalhar ao portátil numa mesa, com plantas em primeiro plano" loading="lazy"></div><figcaption>Trabalhar</figcaption></figure>
+        <figure class="c"><div class="ph"><img src="img/gallery.jpg" alt="Visitantes a ver fotografias emolduradas penduradas numa parede" loading="lazy"></div><figcaption>Exposições</figcaption></figure>
+        <figure class="d"><div class="ph"><img src="img/disco.jpg" alt="Bola de espelhos pendurada no teto, com luz quente da tarde" loading="lazy"></div><figcaption>Música</figcaption></figure>
+      </div>
+      <div class="feats">
+        <div><b>Trabalhar de dia</b><span>Mesas amplas para levar o portátil, de segunda a sábado.</span></div>
+        <div><b>Família bem-vinda</b><span>Uma sala ampla, pensada também para quem vem com crianças.</span></div>
+        <div><b>Jantares de grupo</b><span>Em dezembro, jantares de Natal por reserva no Instagram.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visitar" aria-labelledby="vs-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><span>Onde estamos?</span><i>/ Find us</i></p>
+        <h2 id="vs-h"><span class="sr">Visitar</span><span data-pix="VISITAR" aria-hidden="true"></span></h2>
+      </div>
+      <div class="visit-grid">
+        <div id="pin" class="pin" role="img" aria-label="Pin do mapa"></div>
+        <div>
+          <p class="coords">41.14996, -8.60017</p>
+          <p class="addr"><span class="mk sw">Rua de Santos Pousada 140,</span><br><span class="mk sw">4000-478 Porto</span></p>
+          <div class="ctas">
+            <a class="btn solid" href="https://www.google.com/maps/search/?api=1&amp;query=41.14996,-8.60017" target="_blank" rel="noopener">Abrir no mapa</a>
+            <button class="btn" type="button" id="copyAddr">Copiar morada</button>
+          </div>
+          <p class="transit">A poucos minutos a pé da estação Campo 24 de Agosto (metro e autocarro), perto da Praça dos Poveiros.</p>
+        </div>
+        <div class="col-h">
+          <p class="status" id="statusVisit"><i class="dot" aria-hidden="true"></i><span></span></p>
+          <table class="hours">
+            <caption class="sr">Horário de funcionamento</caption>
+            <tbody id="hoursBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== AGENDA ===================== -->
+<div class="page" id="page-agenda" hidden>
+  <section class="ag-hero" style="padding-bottom:1.5rem">
+    <div class="wrap">
+      <p class="eyebrow"><span>Programação</span><i>/ Events</i><span aria-hidden="true">·</span><span>Rua de Santos Pousada 140, Porto</span></p>
+      <h1><span class="sr">Agenda</span><span data-pix="AGENDA" data-size="big" aria-hidden="true"></span></h1>
+      <p>Música, chefs convidados, exposições e leitura, dentro do café. <span class="mk sw">Entrada livre</span>, sem bilheteira. Para garantir mesa, reserva pelo Instagram.</p>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <div class="wrap">
+      <div class="month">
+        <button class="ibtn" type="button" id="prevM" aria-label="Mês anterior"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
+        <h2 id="monthTitle" aria-live="polite"></h2>
+        <button class="ibtn" type="button" id="nextM" aria-label="Mês seguinte"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
+      </div>
+      <div class="seg" role="group" aria-label="Vista">
+        <button type="button" data-view="cal" aria-pressed="true"><svg viewBox="0 0 13 13" aria-hidden="true"><path d="M1 1h4v4H1zM8 1h4v4H8zM1 8h4v4H1zM8 8h4v4H8z" fill="currentColor"/></svg>Calendário</button>
+        <button type="button" data-view="list" aria-pressed="false"><svg viewBox="0 0 13 13" aria-hidden="true"><path d="M1 2h11v1.6H1zM1 5.7h11v1.6H1zM1 9.4h11V11H1z" fill="currentColor"/></svg>Lista</button>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filtrar por tipo"></div>
+    </div>
+  </div>
+
+  <section class="ag-body" aria-labelledby="monthTitle">
+    <div class="wrap">
+      <p class="summary" id="summary" role="status"></p>
+      <div id="calView" style="margin-top:1rem">
+        <div class="cal-head" aria-hidden="true"><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span></div>
+        <ol class="cal" id="cal"></ol>
+        <div class="daypanel" id="dayPanel" aria-live="polite"></div>
+      </div>
+      <div id="listView" style="margin-top:1rem" hidden></div>
+
+      <div class="note">
+        <span data-pix="!" aria-hidden="true"></span>
+        <div><b>Programação integrada na experiência do espaço</b><p>Sem bilheteira nem espetáculo autónomo: os eventos acontecem com o café aberto. Mais detalhes e reservas em <a href="https://www.instagram.com/nave.porto/" target="_blank" rel="noopener">@nave.porto</a>.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="pg-h" style="padding-top:1rem">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><span>As séries da casa</span><i>/ Programmes</i></p>
+        <h2 id="pg-h"><span class="sr">Programas</span><span data-pix="PROGRAMAS" aria-hidden="true"></span></h2>
+        <p>Cada evento pertence a uma série. O nome diz-te o que esperar.</p>
+      </div>
+      <div class="series" id="series"></div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-pix="NAVE" aria-hidden="true"></span>
+    <p>NAVE · Food &amp; Drinks · Rua de Santos Pousada 140, 4000-478 Porto<i>Programação integrada na experiência do espaço, sem bilheteira.</i></p>
+    <div class="links"><a href="https://www.instagram.com/nave.porto/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/search/top?q=NAVE%20food%20%26%20drinks" target="_blank" rel="noopener">Facebook</a></div>
+  </div>
+</footer>
+
+<dialog class="sheet" id="sheet" aria-labelledby="shTitle">
+  <div class="sh">
+    <div class="sh-img"><img id="shImg" alt=""></div>
+    <div class="sh-body">
+      <div class="sh-bar">
+        <div class="nav2">
+          <button class="ibtn" type="button" id="shPrev" aria-label="Evento anterior"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
+          <button class="ibtn" type="button" id="shNext" aria-label="Evento seguinte"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
+        </div>
+        <button class="ibtn" type="button" id="shClose" aria-label="Fechar"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 3.5 9 9m0-9-9 9" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
+      </div>
+      <p class="sh-cat" id="shCat"></p>
+      <h2 id="shTitle"></h2>
+      <p class="sub" id="shSub"></p>
+      <dl class="facts" id="shFacts"></dl>
+      <p class="desc" id="shDesc"></p>
+      <div class="acts">
+        <a class="btn solid" id="shReserve" href="https://www.instagram.com/nave.porto/" target="_blank" rel="noopener">Reservar mesa</a>
+        <a class="btn" id="shCal" target="_blank" rel="noopener">Adicionar ao Google Calendar</a>
+      </div>
+      <p class="fine">Programação integrada na experiência do espaço — sem bilheteira.<br><i>Programming integrated into the space experience — no ticketing.</i></p>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(() => {
+/* ---------- Pixel type: 4×5 grid, same grammar as the NAVE logo ---------- */
+const G = {
+  A:["..#.",".#.#","#..#","####","#..#"], B:["###.","#..#","###.","#..#","###."], C:[".###","#...","#...","#...",".###"],
+  "Ç":[".###","#...","#...","#...",".###","..#."], D:["###.","#..#","#..#","#..#","###."], E:[".###","#...","###.","#...","####"],
+  G:[".###","#...","#.##","#..#",".###"], H:["#..#","#..#","####","#..#","#..#"], I:["#","#","#","#","#"],
+  L:["#...","#...","#...","#...","####"], M:["#...#","##.##","#.#.#","#...#","#...#"], N:["#..#","##.#","#.##","#..#","#..#"],
+  O:[".##.","#..#","#..#","#..#",".##."], P:["###.","#..#","###.","#...","#..."], R:["###.","#..#","###.","#.#.","#..#"],
+  S:[".###","#...",".##.","...#","###."], T:["####",".#..",".#..",".#..",".#.."], U:["#..#","#..#","#..#","#..#",".###"],
+  V:["#..#","#..#","#..#",".#.#","..#."], Z:["####","...#",".##.","#...","####"], X:["#..#",".#.#","..#.",".#.#","#..#"],
+  "0":[".##.","#..#","#..#","#..#",".##."], "1":[".#","##",".#",".#",".#"], "2":["###.","...#",".##.","#...","####"],
+  "3":["###.","...#",".##.","...#","###."], "4":["#..#","#..#","####","...#","...#"], "5":["####","#...","###.","...#","###."],
+  "6":[".##.","#...","###.","#..#",".##."], "7":["####","...#","..#.",".#..",".#.."], "8":[".##.","#..#",".##.","#..#",".##."],
+  "9":[".##.","#..#",".###","...#",".##."], "!":["#","#","#",".","#"]
+};
+const rnd = (a) => { let s = a; return () => (s = (s * 9301 + 49297) % 233280) / 233280; };
+function grid2svg(rows, label, cls = "") {
+  const h = rows.length, w = Math.max(...rows.map(r => r.length));
+  let r = "";
+  rows.forEach((row, y) => [...row].forEach((c, x) => { if (c === "#") r += `<rect x="${x}" y="${y}" width="1.02" height="1.02"/>`; }));
+  return `<svg class="pix ${cls}" viewBox="0 0 ${w} ${h}" ${label ? `role="img" aria-label="${label}"` : 'aria-hidden="true"'}>${r}</svg>`;
+}
+function word(text, label) {
+  const rows = [];
+  const H = Math.max(...[...text].map(ch => (G[ch] || ["",""]).length).concat(5));
+  for (let y = 0; y < H; y++) rows.push("");
+  [...text].forEach((ch, i) => {
+    const g = ch === " " ? ["..","..","..","..",".."] : (G[ch] || G.O);
+    const w = g[0].length;
+    for (let y = 0; y < H; y++) rows[y] += (g[y] || ".".repeat(w)) + (i < text.length - 1 ? "." : "");
+  });
+  return grid2svg(rows, label);
+}
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function animatePix(svg, seed = 7) {
+  if (reduce || !svg) return;
+  const r = rnd(seed);
+  svg.querySelectorAll("rect").forEach(el => el.style.setProperty("--d", Math.round(r() * 520) + "ms"));
+  svg.classList.remove("go"); svg.getBoundingClientRect(); svg.classList.add("go");
+}
+document.querySelectorAll("[data-pix]").forEach((el, i) => { el.innerHTML = word(el.dataset.pix); });
+
+/* The real logo, in its four assembly states (sampled from the brand files) */
+const S = [
+  { N:["#...","#...","#.##","...#","...."], A:["..#.","....","#..#","##.#","#..."], V:["...#","...#","#...","....","..#."], E:[".#..","#...","###.","#...","...."] },
+  { N:["#...","##..","#.##","...#","...#"], A:["..#.",".#..","#..#","##.#","#..."], V:["...#","...#","#...",".#..","..#."], E:[".##.","#...","###.","#...","...#"] },
+  { N:["#...","##.#","#.##","#..#","...#"], A:["..#.",".#.#","#..#","####","#..."], V:["...#","#..#","#..#",".#..","..#."], E:[".##.","#...","###.","#...",".###"] },
+  { N:G.N, A:G.A, V:G.V, E:G.E }
+];
+function logoSVG(cls, label) {
+  // full logo with a data-s = first state in which each pixel appears
+  let r = "";
+  "NAVE".split("").forEach((L, li) => {
+    for (let y = 0; y < 5; y++) for (let x = 0; x < 4; x++) {
+      if (S[3][L][y][x] !== "#") continue;
+      const st = S.findIndex(s => s[L][y][x] === "#");
+      r += `<rect data-s="${st}" x="${li * 5 + x}" y="${y}" width="1.02" height="1.02"/>`;
+    }
+  });
+  return `<svg class="pix logo-full ${cls}" viewBox="0 0 19 5" ${label ? `role="img" aria-label="${label}"` : 'aria-hidden="true"'}>${r}</svg>`;
+}
+function setLogoState(svg, k) { svg.querySelectorAll("rect").forEach(r => { if (+r.dataset.s > k) r.setAttribute("data-hide", ""); else r.removeAttribute("data-hide"); }); }
+function runLogo(svg, from = 0) {
+  if (reduce) { setLogoState(svg, 3); return; }
+  let k = from; setLogoState(svg, k);
+  const tick = () => { k++; setLogoState(svg, k); if (k < 3) setTimeout(tick, 240); };
+  setTimeout(tick, 380);
+}
+const heroLogo = document.getElementById("heroLogo");
+heroLogo.innerHTML = logoSVG("", "NAVE");
+const brandMark = document.getElementById("brandMark");
+brandMark.innerHTML = logoSVG("", "");
+const brandSvg = brandMark.querySelector("svg");
+setLogoState(brandSvg, 3);
+document.querySelector(".brand").addEventListener("pointerenter", () => runLogo(brandSvg, 0));
+
+/* Pixel icons per category */
+const ICO = {
+  musica:["...##..","...#.#.","...#...","...#...",".###...","####...",".##...."],
+  comida:[".#.#.#.","#.#.#..",".......","#######","#######",".#####.","..###.."],
+  arte:["#######","#.....#","#...#.#","#..##.#","#.###.#","#######","......."],
+  leitura:["##...##","#.#.#.#","#.#.#.#","#.#.#.#","#.#.#.#","##.#.##","......."]
+};
+const icon = (c, cls = "ico") => grid2svg(ICO[c], "", cls);
+const CAT = { musica:"Música", comida:"Comida", arte:"Arte", leitura:"Leitura" };
+
+/* Map pin, from the "Onde estamos?" post */
+document.getElementById("pin").innerHTML = grid2svg(["...#####...","..#.....#..",".#..###..#.","#..#####..#","#..#####..#","#..#####..#",".#..###..#.",".#.......#.","..#.....#..","...#...#...","....#.#....",".....#....."], "");
+
+/* ---------- Data ---------- */
+const SERIES = {
+  mixin:{ name:"MIX-IN PRESENTS", short:"Mix-In", cat:"musica", kind:"Curadoria musical",
+    desc:"Um convidado escolhe a banda sonora do fim de tarde, em vinil e digital. A cozinha e o bar continuam abertos: é para ouvir, conversar e ficar." },
+  sessions:{ name:"NAVE SESSIONS", short:"Sessions", cat:"musica", kind:"Música ao vivo",
+    desc:"Concertos curtos e acústicos, tocados no meio das mesas. Chega cedo se quiseres lugar perto dos músicos." },
+  nne:{ name:"NNE PRESENTS", short:"NNE", cat:"musica", kind:"Never Not Eating",
+    desc:"A série Never Not Eating junta música e mesa: um artista convidado e um menu pensado para a noite." },
+  popup:{ name:"POP-UP FOOD", short:"Pop-up", cat:"comida", kind:"Chef convidado",
+    desc:"Um chef ou projeto convidado assume a cozinha por uma tarde. Menu curto, só nesse dia, enquanto houver." },
+  expo:{ name:"EXHIBITION", short:"Expo", cat:"arte", kind:"Exposição",
+    desc:"As paredes da NAVE recebem o trabalho de um artista durante algumas semanas. A visita é livre durante o horário do café." },
+  book:{ name:"ENTRELINHAS BOOK CLUB", short:"Book Club", cat:"leitura", kind:"Clube de leitura",
+    desc:"Encontro mensal para conversar sobre o livro do mês. Podes vir mesmo sem ter terminado a leitura." },
+  grooves:{ name:"GROOVES AT NAVE", short:"Grooves", cat:"musica", kind:"Sessão de discos",
+    desc:"Uma tarde de discos com curadoria de Martel Selects: soul, jazz, funk e outras coisas com groove." },
+  natal:{ name:"JANTARES DE NATAL", short:"Natal", cat:"comida", kind:"Jantar de grupo",
+    desc:"Jantares de grupo para dezembro, com menu fechado. Reservas abertas pelo Instagram; os lugares são limitados." }
+};
+// [date, time, series, guest, subtitle, image, extra]
+const RAW = [
+  ["2026-10-01","19:00","sessions","Joana Carvalhas","violino","p-joana"],
+  ["2026-10-03","19:00","mixin","Mingote","","p-mingote"],
+  ["2026-10-08","17:00","popup","Bruno Tote","","p-bruno"],
+  ["2026-10-10","15:00","book","","Leitura de outubro","laptop"],
+  ["2026-10-10","19:00","mixin","Patisol","","drinks"],
+  ["2026-10-15","19:00","nne","Jazzy Vibes","trio de jazz","p-jazzy"],
+  ["2026-10-17","16:00","expo","Júlio Cunha","Matière et Mémoire · inauguração","p-julio",{range:"17 out – 14 nov"}],
+  ["2026-10-22","17:00","popup","Soup & Sandwich by Jabuticaba","","p-jabuticaba"],
+  ["2026-10-23","17:00","grooves","Martel Selects","","disco"],
+  ["2026-10-24","19:00","mixin","Valério","","p-valerio"],
+  ["2026-10-29","19:00","sessions","Improvised Jazz","","p-jazz"],
+  ["2026-10-31","19:00","nne","Clyta","","p-clyta"],
+  ["2026-11-05","19:00","mixin","Adri Menegale","","glasses"],
+  ["2026-11-07","15:00","book","","Leitura de novembro","lounge"],
+  ["2026-11-07","17:00","popup","Marina Lessa","","asparagus"],
+  ["2026-11-12","19:00","mixin","Phephz","","p-phephz"],
+  ["2026-11-14","17:00","popup","João Macedo","","p-joao"],
+  ["2026-11-14","18:00","expo","Júlio Cunha","Matière et Mémoire · último dia","gallery",{range:"17 out – 14 nov"}],
+  ["2026-11-19","19:00","sessions","Joana Carvalhas","The Tiny Musician","p-joana"],
+  ["2026-11-20","17:00","grooves","Martel Selects","","disco"],
+  ["2026-11-21","17:00","popup","Red Cap Kitchen","","plating"],
+  ["2026-11-26","19:00","nne","Jazzy Vibes","","p-jazzy"],
+  ["2026-11-28","19:00","mixin","Valério","","p-valerio"],
+  ["2026-12-03","19:00","mixin","Mingote","","p-mingote"],
+  ["2026-12-05","15:00","book","","Leitura de dezembro","laptop"],
+  ["2026-12-10","20:00","natal","","Menu de Natal · grupos","p-natal",{contain:1}],
+  ["2026-12-11","20:00","natal","","Menu de Natal · grupos","p-natal",{contain:1}],
+  ["2026-12-12","17:00","popup","Bruno Tote","","p-bruno"],
+  ["2026-12-12","20:00","natal","","Menu de Natal · grupos","p-natal",{contain:1}],
+  ["2026-12-17","20:00","natal","","Menu de Natal · grupos","p-natal",{contain:1}],
+  ["2026-12-18","20:00","natal","","Menu de Natal · grupos","p-natal",{contain:1}],
+  ["2026-12-19","19:00","nne","Clyta","","p-clyta"],
+  ["2026-12-19","20:00","natal","","Menu de Natal · grupos","p-natal",{contain:1}]
+];
+const slug = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const EV = RAW.map(([d,t,s,g,sub,img,x={}]) => {
+  const se = SERIES[s];
+  return { id:`ev-${d.slice(5).replace("-","")}-${slug(g || se.short)}${t.replace(":","")}`, d, t, s, se, g, sub, img, x, cat:se.cat,
+    title: g ? `${se.name}: ${g}` : se.name, short: g ? `${se.short}: ${g}` : se.name };
+});
+EV.sort((a,b) => (a.d + a.t).localeCompare(b.d + b.t));
+
+/* ---------- Dates (Europe/Lisbon) ---------- */
+const MES = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+const MES3 = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+const DIA = ["domingo","segunda","terça","quarta","quinta","sexta","sábado"];
+const DIA3 = ["dom","seg","ter","qua","qui","sex","sáb"];
+function lisbon() {
+  const p = Object.fromEntries(new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Lisbon",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date()).map(x => [x.type,x.value]));
+  return { ymd:`${p.year}-${p.month}-${p.day}`, h:+p.hour, m:+p.minute };
+}
+const NOW = lisbon(), TODAY = NOW.ymd;
+const parse = ymd => { const [y,m,d] = ymd.split("-").map(Number); return { y, m, d, w:new Date(Date.UTC(y,m-1,d)).getUTCDay() }; };
+const iso = (y,m,d) => `${y}-${String(m).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
+const longDate = ymd => { const p = parse(ymd); return `${DIA[p.w][0].toUpperCase()+DIA[p.w].slice(1)}, ${p.d} de ${MES[p.m-1]}`; };
+const shortDate = ymd => { const p = parse(ymd); return `${DIA3[p.w]} ${p.d} ${MES3[p.m-1]}`; };
+
+/* ---------- Opening status ---------- */
+const HOURS = { 1:[9,19],2:[9,19],3:[9,19],4:[9,19],5:[9,19],6:[10,19],0:null };
+function status() {
+  const w = parse(TODAY).w, h = NOW.h + NOW.m / 60, today = HOURS[w];
+  if (today && h >= today[0] && h < today[1]) return { open:true, txt:`Aberto agora · até às ${today[1]}h` };
+  if (today && h < today[0]) return { open:false, txt:`Fechado · abre hoje às ${today[0]}h` };
+  for (let i = 1; i <= 7; i++) { const nw = (w + i) % 7, o = HOURS[nw]; if (o) return { open:false, txt:`Fechado · abre ${i === 1 ? "amanhã" : DIA[nw]} às ${o[0]}h` }; }
+}
+const st = status();
+["statusTop","statusHero","statusVisit"].forEach(id => { const el = document.getElementById(id); el.classList.toggle("open", st.open); el.querySelector("span").textContent = st.txt; });
+const todayW = parse(TODAY).w;
+document.getElementById("hoursBody").innerHTML = [[1,"Segunda a sexta","09h – 19h",[1,2,3,4,5]],[6,"Sábado","10h – 19h",[6]],[0,"Domingo","Encerrado",[0]]]
+  .map(([,l,v,ws]) => `<tr class="${ws.includes(todayW) ? "today" : ""}"><th scope="row">${l}</th><td>${v}</td></tr>`).join("");
+
+/* ---------- Home ---------- */
+const upcoming = EV.filter(e => e.d >= TODAY);
+const soon = (upcoming.length ? upcoming : EV).slice(0, 4);
+const nx = soon[0];
+const nextUp = document.getElementById("nextUp");
+nextUp.href = "#" + nx.id; nextUp.dataset.ev = nx.id;
+nextUp.innerHTML = `<img src="img/${nx.img}.jpg" alt=""><div><div class="k">${nx.d === TODAY ? "Hoje na NAVE" : "Próximo na NAVE"} / Next up</div><div class="t">${esc(nx.title)}</div><div class="d">${shortDate(nx.d)} · ${nx.t}</div></div>`;
+document.getElementById("homeCards").innerHTML = soon.map(e => `
+  <button class="card" type="button" data-ev="${e.id}">
+    <span class="ph"><img src="img/${e.img}.jpg" alt="" loading="lazy" ${e.x.contain ? 'style="object-fit:contain;background:#fff"' : ""}></span>
+    <span class="cd">${icon(e.cat)}<span>${shortDate(e.d)} · ${e.t}</span></span>
+    <span class="ct">${esc(e.title)}</span>
+  </button>`).join("");
+
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+/* ---------- Agenda ---------- */
+const MONTHS = [...new Set(EV.map(e => e.d.slice(0,7)))].sort();
+let cur = MONTHS.includes(TODAY.slice(0,7)) ? TODAY.slice(0,7) : (MONTHS.find(m => m >= TODAY.slice(0,7)) || MONTHS[0]);
+let filter = "all", view = "cal", selDay = null;
+try { view = localStorage.getItem("nave-view") || "cal"; } catch (e) {}
+
+const filtersEl = document.getElementById("filters");
+function renderFilters() {
+  const inMonth = EV.filter(e => e.d.startsWith(cur));
+  const count = c => inMonth.filter(e => c === "all" || e.cat === c).length;
+  filtersEl.innerHTML = [["all","Tudo"],...Object.entries(CAT)].map(([k,l]) =>
+    `<button class="chip" type="button" data-f="${k}" aria-pressed="${filter === k}">${k === "all" ? "" : icon(k)}${l} <span class="n">${count(k)}</span></button>`).join("");
+}
+filtersEl.addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (!b) return; filter = b.dataset.f; renderAgenda(); });
+
+const visible = () => EV.filter(e => e.d.startsWith(cur) && (filter === "all" || e.cat === filter));
+
+function renderAgenda() {
+  const [y, m] = cur.split("-").map(Number);
+  const mt = document.getElementById("monthTitle");
+  mt.innerHTML = `<span class="sr">${MES[m-1]} de ${y}</span>` + word(`${MES[m-1].toUpperCase()} ${y}`);
+  animatePix(mt.querySelector("svg"), m);
+  document.getElementById("prevM").disabled = MONTHS.indexOf(cur) <= 0;
+  document.getElementById("nextM").disabled = MONTHS.indexOf(cur) >= MONTHS.length - 1;
+  renderFilters();
+  const evs = visible();
+  const catTxt = filter === "all" ? "eventos" : `eventos · ${CAT[filter].toLowerCase()}`;
+  document.getElementById("summary").textContent = `${evs.length} ${catTxt} em ${MES[m-1]} · entrada livre`;
+
+  // Calendar
+  const first = parse(iso(y,m,1)).w, offset = (first + 6) % 7;
+  const dim = new Date(Date.UTC(y, m, 0)).getUTCDate();
+  const cells = Math.ceil((offset + dim) / 7) * 7;
+  const byDay = {}; evs.forEach(e => (byDay[e.d] ||= []).push(e));
+  if (!selDay || !selDay.startsWith(cur)) selDay = (TODAY.startsWith(cur) ? TODAY : (Object.keys(byDay).sort()[0] || iso(y,m,1)));
+  let html = "";
+  for (let i = 0; i < cells; i++) {
+    const dt = new Date(Date.UTC(y, m - 1, 1 - offset + i));
+    const ymd = iso(dt.getUTCFullYear(), dt.getUTCMonth() + 1, dt.getUTCDate());
+    const out = !ymd.startsWith(cur), list = out ? [] : (byDay[ymd] || []);
+    const cls = ["day", out && "out", ymd < TODAY && "past", ymd === TODAY && "today", !out && ymd === selDay && "sel"].filter(Boolean).join(" ");
+    const lbl = `${longDate(ymd)}${ymd === TODAY ? ", hoje" : ""}: ${list.length ? list.length + (list.length > 1 ? " eventos" : " evento") : "sem eventos"}`;
+    html += `<li class="${cls}">
+      <div class="dnum"><b>${dt.getUTCDate()}</b>${ymd === TODAY ? '<span class="tg">Hoje</span>' : ""}</div>
+      <button class="daybtn" type="button" data-day="${ymd}" aria-label="${lbl}" ${out ? "disabled" : ""} aria-pressed="${ymd === selDay}"><span class="n">${dt.getUTCDate()}</span><span class="dots" aria-hidden="true">${"<i></i>".repeat(Math.min(list.length,3))}</span></button>
+      ${list.length ? `<ul class="evs">${list.map(e => `<li><button class="ev" type="button" data-ev="${e.id}" aria-label="${esc(e.title)}, ${longDate(e.d)}, ${e.t}">${icon(e.cat)}<span class="tm">${e.t}</span><span class="nm">${esc(e.short)}</span></button></li>`).join("")}</ul>` : ""}
+    </li>`;
+  }
+  document.getElementById("cal").innerHTML = html;
+  renderDayPanel(byDay);
+
+  // List (poster table)
+  const days = Object.keys(byDay).sort();
+  document.getElementById("listView").innerHTML = days.length ? `<div class="list"><div class="lhead" aria-hidden="true"><span>Dia</span><span>Evento</span><span>Hora</span></div>` +
+    days.map(d => { const p = parse(d); return `<div class="lday ${d < TODAY ? "past" : ""} ${d === TODAY ? "today" : ""}">
+      <div class="ldate"><b>${String(p.d).padStart(2,"0")}</b><span>${DIA3[p.w]}${d === TODAY ? " · hoje" : ""}</span></div>
+      <ul class="lrows">${byDay[d].map(rowBtn).join("")}</ul></div>`; }).join("") + `</div>`
+    : `<p class="empty">Sem eventos deste tipo em ${MES[m-1]}. Experimenta outro filtro.</p>`;
+
+  setView(view, false);
+}
+function rowBtn(e) {
+  return `<li><button class="lrow" type="button" data-ev="${e.id}">${icon(e.cat)}<span class="nm">${esc(e.title)}${e.sub ? `<small>${esc(e.sub)}</small>` : ""}</span><span class="tm">${e.t}</span></button></li>`;
+}
+function renderDayPanel(byDay) {
+  const list = byDay[selDay] || [];
+  document.getElementById("dayPanel").innerHTML = `<div class="lday ${selDay === TODAY ? "today" : ""}" style="border-top:1.5px solid var(--fg)">
+    <div class="ldate"><b>${String(parse(selDay).d).padStart(2,"0")}</b><span>${DIA3[parse(selDay).w]}${selDay === TODAY ? " · hoje" : ""}</span></div>
+    ${list.length ? `<ul class="lrows">${list.map(rowBtn).join("")}</ul>` : `<p class="empty" style="text-align:start;border:0;padding:1rem 0">Sem eventos neste dia.</p>`}</div>`;
+}
+document.getElementById("cal").addEventListener("click", e => {
+  const b = e.target.closest("[data-day]"); if (!b) return;
+  selDay = b.dataset.day;
+  document.querySelectorAll(".day").forEach(li => { const db = li.querySelector(".daybtn"); const on = db.dataset.day === selDay; li.classList.toggle("sel", on); db.setAttribute("aria-pressed", on); });
+  const byDay = {}; visible().forEach(x => (byDay[x.d] ||= []).push(x)); renderDayPanel(byDay);
+});
+function setView(v, store = true) {
+  view = v;
+  document.querySelectorAll("[data-view]").forEach(b => b.setAttribute("aria-pressed", b.dataset.view === v));
+  document.getElementById("calView").hidden = v !== "cal";
+  document.getElementById("listView").hidden = v !== "list";
+  if (store) try { localStorage.setItem("nave-view", v); } catch (e) {}
+}
+document.querySelectorAll("[data-view]").forEach(b => b.addEventListener("click", () => setView(b.dataset.view)));
+document.getElementById("prevM").addEventListener("click", () => { cur = MONTHS[MONTHS.indexOf(cur) - 1]; selDay = null; renderAgenda(); });
+document.getElementById("nextM").addEventListener("click", () => { cur = MONTHS[MONTHS.indexOf(cur) + 1]; selDay = null; renderAgenda(); });
+
+/* Series legend */
+const LEG = ["mixin","sessions","nne","grooves","popup","expo","book","natal"];
+document.getElementById("series").innerHTML = LEG.map(k => { const s = SERIES[k];
+  const badge = k === "mixin" ? `<div class="badge mixin" aria-hidden="true"><span>MIX-IN</span><span>MIX-IN</span><span>MIX-IN</span><span class="dots6">${"<i></i>".repeat(6)}</span></div>`
+    : k === "nne" ? `<div class="badge"><span class="nne" role="img" aria-label="Never Not Eating"></span></div>` : "";
+  return `<article><span class="k">${s.kind}</span><h3>${icon(s.cat)}${s.name}</h3><p>${s.desc}</p>${badge}</article>`; }).join("");
+
+/* ---------- Event sheet ---------- */
+const sheet = document.getElementById("sheet");
+let curEv = null, opener = null;
+function openEv(id, from) {
+  const e = EV.find(x => x.id === id); if (!e) return;
+  curEv = e; if (from) opener = from;
+  if (!e.d.startsWith(cur)) { cur = e.d.slice(0,7); selDay = e.d; renderAgenda(); }
+  const img = document.getElementById("shImg");
+  img.src = `img/${e.img}.jpg`; img.className = e.x.contain ? "contain" : "";
+  img.alt = e.img.startsWith("p-") ? `Cartaz: ${e.title}` : "";
+  document.getElementById("shCat").innerHTML = `${icon(e.cat)}<span>${CAT[e.cat]} · ${e.se.kind}</span>`;
+  document.getElementById("shTitle").innerHTML = e.g ? `<span class="s">${e.se.name}:</span>${esc(e.g)}` : esc(e.se.name);
+  document.getElementById("shSub").textContent = e.sub || ""; document.getElementById("shSub").hidden = !e.sub;
+  const facts = [["Data", longDate(e.d) + (e.d === TODAY ? " · hoje" : "")],["Hora", e.t],["Local","NAVE · Santos Pousada 140"],["Entrada","Livre, sem bilheteira"]];
+  if (e.x.range) facts.splice(2, 0, ["Patente", e.x.range]);
+  if (e.s === "natal") facts[3] = ["Entrada","Reserva obrigatória"];
+  document.getElementById("shFacts").innerHTML = facts.map(([k,v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
+  document.getElementById("shDesc").textContent = e.se.desc;
+  const [hh, mm] = e.t.split(":").map(Number), dur = e.s === "natal" ? 3 : 2;
+  const pad = n => String(n).padStart(2,"0"), dd = e.d.replace(/-/g,"");
+  const calUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(e.title + " · NAVE") +
+    `&dates=${dd}T${pad(hh)}${pad(mm)}00/${dd}T${pad(hh + dur)}${pad(mm)}00&ctz=Europe/Lisbon&location=` + encodeURIComponent("NAVE, Rua de Santos Pousada 140, 4000-478 Porto") +
+    "&details=" + encodeURIComponent(e.se.desc + "\n\nMais detalhes e reservas: instagram.com/nave.porto");
+  document.getElementById("shCal").href = calUrl;
+  const i = EV.indexOf(e);
+  document.getElementById("shPrev").disabled = i === 0;
+  document.getElementById("shNext").disabled = i === EV.length - 1;
+  if (!sheet.open) { sheet.showModal(); }
+  document.getElementById("shClose").focus();
+}
+function closeEv() { if (sheet.open) sheet.close(); }
+sheet.addEventListener("close", () => {
+  let t = opener && document.contains(opener) && opener.offsetParent ? opener : null;
+  if (!t && curEv) t = [...document.querySelectorAll(`#page-agenda [data-ev="${curEv.id}"]`)].find(x => x.offsetParent);
+  (t || document.getElementById("main")).focus(); opener = null;
+});
+sheet.addEventListener("click", e => { if (e.target === sheet) closeEv(); });
+document.getElementById("shClose").addEventListener("click", closeEv);
+document.getElementById("shPrev").addEventListener("click", () => { const i = EV.indexOf(curEv); if (i > 0) openEv(EV[i-1].id); });
+document.getElementById("shNext").addEventListener("click", () => { const i = EV.indexOf(curEv); if (i < EV.length - 1) openEv(EV[i+1].id); });
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-ev]"); if (!b) return;
+  e.preventDefault();
+  const fromHome = !!b.closest("#page-inicio");
+  if (fromHome) go("agenda");
+  openEv(b.dataset.ev, fromHome ? null : b);
+});
+
+/* ---------- Copy address ---------- */
+const toast = document.getElementById("toast"); let tt;
+function say(t){ toast.textContent = t; toast.hidden = false; clearTimeout(tt); tt = setTimeout(() => toast.hidden = true, 2200); }
+document.getElementById("copyAddr").addEventListener("click", async () => {
+  const t = "Rua de Santos Pousada 140, 4000-478 Porto";
+  try { await navigator.clipboard.writeText(t); say("Morada copiada"); }
+  catch (e) { const s = getSelection(), r = document.createRange(); r.selectNodeContents(document.querySelector(".addr")); s.removeAllRanges(); s.addRange(r); say("Morada selecionada: usa Copiar"); }
+});
+
+/* ---------- Routing ---------- */
+const pages = { inicio:document.getElementById("page-inicio"), agenda:document.getElementById("page-agenda") };
+let route = null;
+function go(r, opts = {}) {
+  const target = r === "agenda" ? "agenda" : "inicio";
+  if (target !== route) {
+    route = target;
+    Object.entries(pages).forEach(([k, el]) => el.hidden = k !== target);
+    if (target === "agenda") { renderAgenda(); animatePix(document.querySelector('#page-agenda [data-size] svg'), 3); }
+    else { runLogo(heroLogo.querySelector("svg")); }
+    if (!opts.keepScroll) window.scrollTo(0, 0);
+  }
+  document.querySelectorAll(".nav a").forEach(a => { if (a.dataset.route === r) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+  if (r === "visitar") document.getElementById("visitar").scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+  try { history.replaceState(null, "", "#" + r); } catch (e) {}
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest("a[data-route]"); if (!a) return;
+  e.preventDefault(); go(a.dataset.route);
+  if (a.dataset.route !== "visitar") document.getElementById("main").focus({ preventScroll:true });
+});
+window.addEventListener("hashchange", () => route_from_hash());
+function route_from_hash() {
+  const h = location.hash.slice(1);
+  if (h.startsWith("ev-") && EV.some(e => e.id === h)) { go("agenda"); openEv(h); }
+  else if (["agenda","visitar","inicio"].includes(h)) go(h);
+  else go("inicio");
+}
+route_from_hash();
+})();
+</script>
+</body>
+</html>
